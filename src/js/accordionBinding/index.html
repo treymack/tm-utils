@@ -33,11 +33,23 @@
 		Should be expanded initially and connected to checkbox 3.
 	</div>
 </div>
+<div data-bind="accordion: { collapsed: !accordion4Expanded() }">
+	<h3>Title 4</h3>
+	<div>
+		Should be expanded initially and connected to checkbox 4.
+	</div>
+</div>
+<div>
+	accordion4Expanded = <span data-bind="text: accordion4Expanded"></span>
+	<br />
+	This should stay true when collapsing / expanding Title 4.
+</div>
 
 <script>
 	var vm = {
 		accordion2Collapsed: ko.observable(false),
-		accordion3Collapsed: ko.observable(true)
+		accordion3Collapsed: ko.observable(true),
+		accordion4Expanded: ko.observable(true)
 	};
 	ko.applyBindings(vm);
 </script>
