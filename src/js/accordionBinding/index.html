@@ -1,0 +1,45 @@
+<html>
+<head>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-2.1.0.debug.js"></script>
+<script src="ko.accordionBinding.js"></script>
+<style>
+</style>
+</head>
+<body>
+
+<input type="checkbox" data-bind="checked: accordion2Collapsed">accordion 2 Collapsed</input>
+<input type="checkbox" data-bind="checked: accordion3Collapsed">accordion 3 Collapsed</input>
+
+<div data-bind="accordion: true">
+	<h3>Title 1</h3>
+	<div>
+		Default - should be open initially.
+		
+		Bacon ipsum dolor sit amet shank elit pork loin, ham consequat nostrud consectetur corned beef minim. Irure excepteur beef, in swine laboris deserunt sunt pork loin rump strip steak nostrud.
+	</div>
+</div>
+<div data-bind="accordion: { collapsed: accordion2Collapsed }" id="test">
+	<h3>Title 2</h3>
+	<div>
+		Should be collapsed initially and connected to checkbox 2.
+	</div>
+</div>
+<div data-bind="accordion: { collapsed: accordion3Collapsed }">
+	<h3>Title 3</h3>
+	<div>
+		Should be expanded initially and connected to checkbox 3.
+	</div>
+</div>
+
+<script>
+	var vm = {
+		accordion2Collapsed: ko.observable(false),
+		accordion3Collapsed: ko.observable(true)
+	};
+	ko.applyBindings(vm);
+</script>
+</body>
+</html>
